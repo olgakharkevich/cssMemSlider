@@ -7,9 +7,17 @@
 
 body { 
     font-size: 10px;
-    background: whitesmoke;
     overflow-x: hidden;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 article {
@@ -24,17 +32,6 @@ h1 {
 
 #slider {
     text-align: center;
-}
-
-label {
-    color: brown;
-    cursor: pointer;
-    text-decoration: none;
-    font-style: italic;
-}
-
-label:hover {
-    color: #ddd!important;
 }
 
 #slider {
@@ -64,6 +61,7 @@ input {
 #container {
     width: 100%;
     overflow: hidden;
+    border-radius: 30px;
 }
 
 article img {
@@ -81,59 +79,62 @@ article img {
     float: left;
 }
 
-#commands { 
+#controls { 
     margin-top: -25%;
     width: 100%;
     height: 5rem;
 }
 
-#commands label { 
+#controls label { 
     display: none;
     width: 80px;
     height: 80px;
     opacity: 0.5;
 }
 
-#commands label:hover { 
+#controls label:hover { 
     opacity: 0.8;
 }
 
 #active { 
     position: relative;
     z-index: 5;
-    margin-top: 16%;
-    text-align: center;
+    margin-top: 10%;
+    display: flex;
+    justify-content: end;
 }
 
 #active label { 
-    border-radius: 5px;
+    border-radius: 50%;
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 40px;
+    height: 40px;
     background: #bbb;
+    margin: 3px;
+    border: 7px solid whitesmoke;
+    cursor: pointer;
 }
 
 #active label:hover { 
     background: #333;
-    border-color: #777!important;
 }
 
-#slide1:checked ~ #commands label:nth-child(2),
-#slide2:checked ~ #commands label:nth-child(3),
-#slide3:checked ~ #commands label:nth-child(4),
-#slide4:checked ~ #commands label:nth-child(5),
-#slide5:checked ~ #commands label:nth-child(1) { 
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(5),
+#slide5:checked ~ #controls label:nth-child(1) { 
     background: url('https://0.s3.envato.com/files/84450220/img/next.png') no-repeat;
     float: right;
     margin-right: 1.2rem;
     display: block;
 }
 
-#slide1:checked ~ #commands label:nth-child(5),
-#slide2:checked ~ #commands label:nth-child(1),
-#slide3:checked ~ #commands label:nth-child(2),
-#slide4:checked ~ #commands label:nth-child(3),
-#slide5:checked ~ #commands label:nth-child(4) { 
+#slide1:checked ~ #controls label:nth-child(5),
+#slide2:checked ~ #controls label:nth-child(1),
+#slide3:checked ~ #controls label:nth-child(2),
+#slide4:checked ~ #controls label:nth-child(3),
+#slide5:checked ~ #controls label:nth-child(4) { 
     background: url('https://0.s3.envato.com/files/84450220/img/previous.png') no-repeat;
     float: left;
     margin-left: -0.6rem;
@@ -173,12 +174,7 @@ article img {
 #slides { 
     position: relative;
     padding: 2px;
-    border: 1px solid #ddd;
-    margin-top: 45px;
-    background: #FFF;
-    background: linear-gradient(#FFF,#FFF 20%,#EEE 80%,#DDD);
-    border-radius: 2px 2px 2px 2px;
-    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    margin-top: 25px;
 }
 
 #slides .inner { 
@@ -190,7 +186,7 @@ article img {
     transition: all 0.5s ease-out;
 }
 
-#commands label { 
+#controls label { 
     transition: opacity 0.2s ease-out;
 }
 
@@ -203,26 +199,26 @@ article img {
     transition: all 1s ease-out 0.6s;
 }
 
-#commands, 
-#commands label, 
+#controls, 
+#controls label, 
 #slides, 
 #active, 
 #active label { 
     transition: all 0.5s ease-out;
 }
 
-#slider { 
+/* #slider { 
     max-width: 960px;
-}
+} */
 
-@media only screen and (max-width: 850px) and (min-width: 450px) {  
-    #slider #commands { 
+@media only screen and (max-width: 850px) {  
+    /* #slider #controls { 
         margin: -25% 0 0 5%;
         width: 90%;
         height: 50px;
     }
 
-    #slider #commands label { 
+    #slider #controls label { 
         transform: scale(0.9);
     }
 
@@ -237,7 +233,7 @@ article img {
 
     #slider #active { 
         margin: 15% 0 0;
-    }
+    } */
 }
 
 @media only screen and (max-width: 450px) {
@@ -245,7 +241,11 @@ article img {
         width: 100vw;
     }
 
-    #slider #commands { 
+    #active { 
+        justify-content: end;
+    }
+
+    /* #slider #controls { 
         margin: -28% 0 0 1%;
         width: 100%;
         height: 70px;
@@ -263,7 +263,7 @@ article img {
         opacity: 0!important;
     }
 
-    #slider #commands label { 
+    #slider #controls label { 
         transform: scale(0.7);
-    }
+    } */
 }
