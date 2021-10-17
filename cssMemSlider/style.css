@@ -97,11 +97,11 @@ article img {
 }
 
 #active { 
-    position: relative;
+    /* position: relative; */
     z-index: 5;
     margin-top: 10%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 #active label { 
@@ -117,6 +117,39 @@ article img {
 
 #active label:hover { 
     background: #333;
+}
+
+.captions {
+    width: 40%;
+    overflow: hidden;
+}
+
+.captions_slider {
+    width: 500%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.captions_slider > div {
+    font-size: 1.5rem;
+    width: 20%;
+}
+
+#slide1:checked ~ #active .captions_slider {
+    margin-left: 0;
+}
+#slide2:checked ~ #active .captions_slider {
+    margin-left: -100%;
+}
+#slide3:checked ~ #active .captions_slider {
+    margin-left: -200%;
+}
+#slide4:checked ~ #active .captions_slider {
+    margin-left: -300%;
+}
+#slide5:checked ~ #active .captions_slider {
+    margin-left: -400%;
 }
 
 #slide1:checked ~ #controls label:nth-child(2),
@@ -152,27 +185,9 @@ article img {
     border: 2px solid #fff;
 }
 
-.caption { 
-    line-height: 20px;
-    margin-bottom: -150%;
-    position: absolute;
-    padding: 320px 12px;
-    opacity: 0;
-    color: #fff;
-    text-transform: none;
-    font-size: 1.6rem;
-}
 
-.caption bar { 
-    display: inline-block;
-    padding: 10px;
-    background: #000;
-    border-radius: 3px 3px 3px 3px;
-    opacity: 0.7;
-}
 
 #slides { 
-    position: relative;
     padding: 2px;
     margin-top: 25px;
 }
@@ -207,63 +222,34 @@ article img {
     transition: all 0.5s ease-out;
 }
 
-/* #slider { 
-    max-width: 960px;
-} */
 
-@media only screen and (max-width: 850px) {  
-    /* #slider #controls { 
-        margin: -25% 0 0 5%;
-        width: 90%;
-        height: 50px;
+@media only screen and (max-width: 576px) { 
+    body {
+        font-size: 8px;
     }
-
-    #slider #controls label { 
-        transform: scale(0.9);
-    }
-
-    #slider #slides .caption { 
-        padding: 280px 12px;
-    }
-
-    #slider #slides { 
-        padding: 2px 0;
-        border-radius: 0;
-    }
-
-    #slider #active { 
-        margin: 15% 0 0;
-    } */
+    
+    .wrapper {
+        margin-top: 0;
+        padding: 0;
+    } 
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 460px) {
+    body {
+        font-size: 5px;
+    }
+
     article {
         width: 100vw;
     }
 
     #active { 
-        justify-content: end;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    /* #slider #controls { 
-        margin: -28% 0 0 1%;
+    .captions {
         width: 100%;
-        height: 70px;
+        order: 2;
     }
-
-    #slider #active { 
-        margin: 12% 0 0;
-    }
-    #slider #slides { 
-        padding: 2px 0;
-        border-radius: 0;
-    }
-
-    #slider #slides .caption { 
-        opacity: 0!important;
-    }
-
-    #slider #controls label { 
-        transform: scale(0.7);
-    } */
 }
